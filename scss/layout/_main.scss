@@ -1,0 +1,482 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	color: white;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+p {
+	font-size: 1.1rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	display: block;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	position: relative;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 30px 30px;
+	text-align: center;
+	@include breakpoint(tablet) {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		text-align: left;
+	}
+}
+
+/*-------HEADER------*/
+
+header {
+	display: block;
+	background-color: rgba(0, 0, 0, 0.9);
+	height: 70px;
+	position: fixed;
+	z-index: 1;
+	width: 100vw;
+
+	/*------Logo-----*/
+	img {
+		@media screen and (max-width: 767px) {
+			margin-top: 11px;
+			float: left;
+		}
+		@include breakpoint(tablet) {
+			align-self: center;
+		}
+
+	}
+
+	/*------header fast contact-------*/
+	.header-contact {
+		display: none;
+		z-index: 2;
+		color: black;
+		@include breakpoint (tablet) {
+			display: block;
+			height: 70px;
+			width: 324px;
+			background: url(../img/header-bg.png) no-repeat center;
+			i {
+				font-size: 30px;
+				font-weight: bold;
+				margin: 10px 10px 10px 30px;
+				float: left;
+			}
+			div {
+				float: left;
+				text-align: center;
+				font-size: 0.8rem;
+				margin-top: 10px;
+				span {
+					display: block;
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+}
+
+/*------main navigation-------*/
+nav {
+	ul {
+		text-transform: uppercase;
+		padding: 0;
+		list-style: none;
+		background-color: rgba(0, 0, 0, 0.9);
+		display: block;
+		font-size: 1.3rem;
+		margin-top: 0;
+		margin-bottom: 0;
+		@media screen and (max-width: 767px) {
+			@include position(fixed, 70px 0 null 0);
+			width: 100vw;
+		}
+		@include breakpoint(tablet) {
+			@media screen and (max-width: 1023px) {
+				@include position(fixed, 70px 0 0 null);
+				width: 250px;
+				text-align: center;
+			}
+		}
+		@include breakpoint(desktop) {
+			align-self: baseline;
+			margin: 0 20px 0 -130px;
+			background: none;
+		}
+		li {
+			margin: 30px 0;
+			@include breakpoint(desktop) {
+				display: inline-block;
+				margin: 30px 0 0 10px;
+			}
+			a {
+				text-decoration: none;
+				color: white;
+				&:hover {
+					color: $main-color;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+/*-------menu button for mobile navigation--------*/
+.menu-btn {
+	display: inline-block;
+	float: right;
+	cursor: pointer;
+	margin: 15px 40px 0 0;
+}
+
+.bar1, .bar2, .bar3 {
+	width: 35px;
+	height: 5px;
+	background-color: white;
+	margin: 6px 0;
+	transition: 0.4s;
+	align-self: center;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+	-webkit-transform: rotate(-45deg) translate(-9px, 6px);
+	transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+	opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+	-webkit-transform: rotate(45deg) translate(-8px, -8px);
+	transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/*------END OF HEADER-------*/
+
+/*-------COFFEE SECTION-------*/
+.row-coffee {
+	margin-top: 70px;
+	height: 187px;
+	@media screen and (max-width: 1023px) {
+		background: url(../img/coffee-blurred.png) no-repeat;
+		background-size: cover;
+	}
+	@include breakpoint(desktop) {
+		background: url("../img/pattern.png");
+	}
+	img {
+		display: none;
+		@include breakpoint(desktop) {
+			display: block;
+		}
+	}
+}
+
+.coffee-text {
+	font-size: 1.2rem;
+	@media screen and (max-width: 1023px) {
+		text-align: center;
+	}
+}
+/*-------END OF COFFEE SECTION--------*/
+
+/*-------LOCATION SECTION------------*/
+.location-text {
+	@include breakpoint(desktop) {
+		flex: 2;
+	}
+	h3 {
+		color: black;
+	}
+	p {
+		line-height: 25px;
+		color: $alternative-text-color;
+	}
+	img {
+		@media screen and (max-width: 767px) {
+			width: 100%;
+			margin: 10px auto;
+		}
+		@include breakpoint(tablet) {
+			float: left;
+			margin: 0 20px 0 0;
+		}
+	}
+}
+
+/*--------tags in location section--------*/
+.tags {
+	display: none;
+	@include breakpoint(desktop) {
+		display: block;
+		flex: 1;
+		margin-left: 50px;
+	}
+	h3 {
+		color: $main-color
+	}
+}
+
+.text-normal {
+	font-size: 0.8rem;
+	color: black;
+}
+
+.text-gray {
+	font-size: 0.9rem;
+	color: $alternative-text-color;
+}
+
+.text-middle {
+	font-size: 1.2rem;
+	color: lighten($main-color, 10%);
+}
+
+.text-big {
+	font-size: 1.6rem;
+	color: $main-color;
+}
+/*--------END OF LOCATION SECTION----------*/
+
+/*--------OUR WORK SECTION------------*/
+.row-our-work {
+	.content {
+		@media screen and (max-width: 1023px) {
+			flex-direction: column;
+		}
+	}
+	background-color: $primary-bg-color;
+	.our-work-text {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding: 0 30px 0 0;
+		p {
+			margin: 0;
+			display: block;
+			span {
+				display: block;
+				font-size: 1.3rem;
+				margin: 20px 0;
+			}
+		}
+		@media screen and (max-width: 1023px) {
+			text-align: center;
+		}
+	}
+
+	/*-------gallery in our work section-------*/
+	.our-work-gallery {
+		margin: 0 auto;
+		display: flex;
+		@media screen and (max-width: 767px) {
+			flex-direction: column;
+			margin-top: 30px;
+		}
+		@media screen and (max-width: 1023px) {
+			justify-content: space-between;
+			flex: 1;
+		}
+		@include breakpoint(tablet) {
+			margin-top: 80px;
+			flex-flow: row wrap;
+
+		}
+		@include breakpoint(desktop) {
+			justify-content: flex-end;
+			flex: 4;
+		}
+		img {
+			transition: transform .25s ease;
+			@media screen and (max-width: 767px) {
+				margin: 0 0 20px 0;
+				align-self: center;
+				width: 90%;
+				&:nth-child(2n+2) {
+					display: none;
+				}
+			}
+			@include breakpoint(tablet) {
+				width: 100%;
+				height: auto;
+				margin: 0 0 25px 15px;
+				align-self: center;
+				flex: 1;
+			}
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
+/*--------END OF OUR WORK SECTION--------*/
+
+/*--------BEST FOOD SECTION-------*/
+.row-best-food {
+	.content {
+		@media screen and (max-width: 1023px) {
+			padding-bottom: 0;
+		}
+	}
+	h3 {
+		color: black;
+	}
+	p {
+		color: $alternative-text-color;
+	}
+	.best-food-text-before {
+		display: block;
+	}
+	.full-width-image {
+		height: 348px;
+		@media screen and (max-width: 1023px) {
+			display: none;
+		}
+		@include breakpoint(desktop) {
+			display: block;
+			background: url("../img/raspberry.jpg") no-repeat;
+			padding-top: 24.85%;
+			background-size: cover;
+		}
+	}
+	.best-food-text-after {
+		p {
+			@include breakpoint(desktop) {
+				margin-top: 50px;
+			}
+		}
+	}
+	img {
+		display: none;
+		@include breakpoint(desktop) {
+			display: block;
+			height: 95px;
+			align-self: flex-end;
+			margin-left: 30px;
+		}
+	}
+}
+/*------END OF BEST FOOD SECTION--------*/
+
+/*-------MUFFINS SECTION---------*/
+.row-muffins {
+	.content {
+		padding-bottom: 0;
+	}
+	background-color: $primary-bg-color;
+	img {
+		width: 100%;
+		height: auto;
+		align-self: center;
+		@media screen and (max-width: 767px) {
+			margin-top: 30px;
+		}
+		margin: 0 auto;
+	}
+	.muffins-text {
+		display: flex;
+		flex-direction: column;
+		padding: 50px 0;
+		@include breakpoint(tablet) {
+			padding-left: 50px;
+		}
+		a {
+			color: white;
+			display: none;
+			@include breakpoint(tablet) {
+				display: block;
+				align-self: flex-end;
+			}
+			&:hover {
+				color: $main-color;
+				cursor: pointer;
+			}
+		}
+		h3 {
+			align-self: center;
+			margin-bottom: 10px;
+			@include breakpoint(tablet) {
+				align-self: flex-end;
+			}
+		}
+	}
+}
+/*-------END OF MUFFINS SECTION--------*/
+
+/*-------FOOTER--------*/
+footer {
+	color: $alternative-text-color;
+
+	/*-------contact buttons for mobile--------*/
+	button {
+		width: 100%;
+		padding: 20px 20px;
+		margin: 20px 0;
+		font-size: 4rem;
+		background-color: $main-color;
+		border-radius: 10px;
+		border: 1px solid $main-color;
+		a {
+			color: white;
+			span {
+				margin-left: 20px;
+			}
+		}
+		@include breakpoint(tablet) {
+			display: none;
+		}
+	}
+	/*--------contact informations--------*/
+	.contact-text {
+		display: none;
+		@include breakpoint(tablet) {
+			display: block;
+			margin-top: 20px;
+			flex: 1;
+			p {
+				display: block;
+				letter-spacing: 3px;
+				span {
+					text-transform: uppercase;
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+	/*-------copyrights--------*/
+	.footer-copyrights {
+		.content {
+			justify-content: center;
+			padding-bottom: 0;
+		}
+		text-align: center;
+		span {
+			text-transform: uppercase;
+		}
+	}
+}
+/*-------END OF FOOTER--------*/
